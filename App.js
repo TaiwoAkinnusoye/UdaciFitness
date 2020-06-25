@@ -1,12 +1,14 @@
 import React from 'react';
 import { StyleSheet, Text, View } from 'react-native';
+import { Ionicons } from '@expo/vector-icons';
+import AddEntry from './components/AddEntry';
 
 export default class App extends React.Component {
   render() {
     return (
       <View style={styles.container}>
-        <Text>Opening up App.js, start working on your app!</Text>
-        <Text>Changes you make will automatically reload</Text>
+        <AddEntry />
+        <Ionicons name="ios-pizza" color="blue" size={100} />
       </View>
     );
   }
