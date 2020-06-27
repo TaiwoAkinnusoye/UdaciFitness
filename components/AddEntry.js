@@ -1,5 +1,11 @@
 import React, { Component } from 'react';
-import { View, TouchableOpacity, Text } from 'react-native';
+import {
+  View,
+  TouchableOpacity,
+  Text,
+  Platform,
+  StyleSheet,
+} from 'react-native';
 import {
   getMetricMetaInfo,
   timeToString,
@@ -13,6 +19,7 @@ import TextButton from './TextButton';
 import { submitEntry, removeEntry } from '../utils/api';
 import { connect } from 'react-redux';
 import { addEntry } from '../actions';
+import { white, purple } from '../utils/colors';
 
 function SubmitBtn({ onPress }) {
   return (
@@ -146,6 +153,33 @@ class AddEntry extends Component {
     );
   }
 }
+
+const styles = StyleSheet.create({
+  iosSubmitBtn: {
+    backgroundColor: purple,
+    padding: 10,
+    borderRadius: 7,
+    height: 45,
+    marginLeft: 40,
+    marginRight: 40,
+  },
+  andriodSubmitBtn: {
+    backgroundColor: purple,
+    padding: 10,
+    paddingRight: 30,
+    paddingLeft: 30,
+    height: 45,
+    borderRadius: 2,
+    alignSelf: 'flex-end',
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
+  submitBtnText: {
+    color: white,
+    fontSize: 22,
+    textAlign: 'center',
+  },
+});
 
 function mapStateToProps(state) {
   const key = timeToString();
